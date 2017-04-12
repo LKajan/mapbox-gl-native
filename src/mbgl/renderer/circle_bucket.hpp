@@ -26,6 +26,9 @@ public:
     void upload(gl::Context&) override;
     void render(Painter&, PaintParameters&, const style::Layer&, const RenderTile&) override;
 
+    std::unordered_map<std::string, CircleProgram::PaintPropertyBinders::Statistics> getPaintPropertyStatistics() const;
+//    std::unordered_map<std::string, style::PaintPropertyStatistics> getPaintPropertyStatistics() const;
+
     gl::VertexVector<CircleLayoutVertex> vertices;
     gl::IndexVector<gl::Triangles> triangles;
     gl::SegmentVector<CircleAttributes> segments;

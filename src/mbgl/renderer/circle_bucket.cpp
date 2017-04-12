@@ -97,4 +97,24 @@ void CircleBucket::addFeature(const GeometryTileFeature& feature,
     }
 }
 
+std::unordered_map<std::string, CircleProgram::PaintPropertyBinders::Statistics> CircleBucket::getPaintPropertyStatistics() const {
+    std::unordered_map<std::string, CircleProgram::PaintPropertyBinders::Statistics> map;
+
+    for (auto it : paintPropertyBinders) {
+        map.insert({it.first, it.second.statistics});
+    }
+
+    return map;
+};
+
+//std::unordered_map<std::string, style::PaintPropertyStatistics> CircleBucket::getPaintPropertyStatistics() const {
+//    std::unordered_map<std::string, style::PaintPropertyStatistics> map;
+//
+//    for (auto it : paintPropertyBinders) {
+//        map.insert({it.first, it.second.statistics});
+//    }
+//
+//    return map;
+//};
+
 } // namespace mbgl
